@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>山青浩然 · 校友经济系列广告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #f4f1ec;
+    --surface: #ffffff;
+    --ink: #1a1814;
+    --muted: #7a7068;
+    --accent: #2d5a27;
+    --accent2: #8b6914;
+    --border: rgba(26,24,20,0.10);
+    --radius: 16px;
+  }
+  .dark {
+    --bg: #111009;
+    --surface: #1c1a14;
+    --ink: #f0ece4;
+    --muted: #8a8278;
+    --accent: #6db34a;
+    --accent2: #d4a843;
+    --border: rgba(240,236,228,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
+  .font-serif { font-family: 'Noto Serif SC', serif; }
+
+  /* ── Navigation ── */
+  .top-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(244,241,236,0.82);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .dark .top-nav { background: rgba(17,16,9,0.82); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Noto Serif SC', serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em; color: var(--accent); }
+  .nav-dots { display: flex; gap: 10px; align-items: center; }
+  .nav-dot { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s; font-size: 12px; color: var(--muted); font-weight: 500; }
+  .nav-dot:hover, .nav-dot.active { border-color: var(--accent); color: var(--accent); background: var(--accent); color: white; }
+  .theme-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s; }
+
+  /* ── Page system ── */
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── Animations ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideRight { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+  .anim-fade-up { animation: fadeUp 0.7s cubic-bezier(0.2,0.8,0.2,1) forwards; opacity: 0; }
+  .anim-fade-in { animation: fadeIn 0.6s ease forwards; opacity: 0; }
+  .anim-slide-right { animation: slideRight 0.6s cubic-bezier(0.2,0.8,0.2,1) forwards; opacity: 0; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+  .delay-5 { animation-delay: 0.65s; }
+  .delay-6 { animation-delay: 0.8s; }
+
+  /* ── HERO (Page 1) ── */
+  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #e8f0e4 0%, #f4f1ec 40%, #f0ead8 100%); z-index: 0; }
+  .dark .hero-bg { background: linear-gradient(160deg, #0d1a08 0%, #111009 40%, #1a1408 100%); }
+  .hero-pattern { position: absolute; inset: 0; z-index: 1; opacity: 0.06; background-image: radial-gradient(circle, #2d5a27 1px, transparent 1px); background-size: 28px 28px; }
+  .hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  @media(max-width: 768px) { .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; } }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--accent); color: var(--accent); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(45,90,39,0.06); margin-bottom: 24px; }
+  .hero-title { font-family: 'Noto Serif SC', serif; font-size: clamp(36px,5vw,64px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 20px; }
+  .hero-title .accent { color: var(--accent); }
+  .hero-sub { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 480px; margin-bottom: 36px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { padding: 14px 32px; border-radius: 50px; background: var(--accent); color: white; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-ghost { padding: 14px 32px; border-radius: 50px; border: 1.5px solid var(--accent); color: var(--accent); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.25s; background: transparent; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-ghost:hover { background: var(--accent); color: white; }
+
+  /* Decorative circles */
+  .deco-circle { position: absolute; border-radius: 50%; z-index: 1; }
+  .deco-1 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(45,90,39,0.12) 0%, transparent 70%); right: -80px; top: 60px; animation: float 6s ease-in-out infinite; }
+  .deco-2 { width: 200px; height: 200px; background: radial-gradient(circle, rgba(139,105,20,0.10) 0%, transparent 70%); left: 40px; bottom: 80px; animation: float 8s ease-in-out infinite reverse; }
+
+  /* Hero right visual */
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .feather-orb { width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(135deg, #e0eed8 0%, #c8dfc0 30%, #a8c898 60%, #7aab68 100%); display: flex; align-items: center; justify-content: center; position: relative; animation: float 5s ease-in-out infinite; box-shadow: 0 32px 80px rgba(45,90,39,0.18), inset 0 0 40px rgba(255,255,255,0.3); }
+  .dark .feather-orb { background: radial-gradient(135deg, #1a3010 0%, #142808 30%, #0f2006 60%, #091804 100%); box-shadow: 0 32px 80px rgba(109,179,74,0.15); }
+  .feather-orb::before { content: ''; position: absolute; inset: -20px; border-radius: 50%; border: 1px solid rgba(45,90,39,0.15); }
+  .feather-orb::after { content: ''; position: absolute; inset: -40px; border-radius: 50%; border: 1px solid rgba(45,90,39,0.08); }
+  .orb-text { font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 700; color: #1a3d18; text-align: center; line-height: 1.3; letter-spacing: 0.1em; }
+  .dark .orb-text { color: #6db34a; }
+
+  /* Stats row */
+  .stats-row { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
+  .stats-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+  @media(max-width: 600px) { .stats-inner { grid-template-columns: 1fr; gap: 32px; } }
+  .stat-n { font-family: 'Noto Serif SC', serif; font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .stat-lbl { font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
+
+  /* ── PAGE 2: Brand Story ── */
+  .brand-section { padding: 100px 0; }
+  .brand-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .section-title { font-family: 'Noto Serif SC', serif; font-size: clamp(28px,3.5vw,44px); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 560px; margin-bottom: 60px; }
+
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  @media(max-width: 768px) { .story-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .story-timeline { position: relative; padding-left: 32px; }
+  .story-timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; margin-bottom: 36px; }
+  .timeline-item::before { content: ''; position: absolute; left: -29px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 3px var(--accent); }
+  .timeline-year { font-family: 'Noto Serif SC', serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; letter-spacing: 0.05em; }
+  .timeline-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .timeline-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  .story-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .value-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.25s; }
+  .value-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(45,90,39,0.08); }
+  .value-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(45,90,39,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--accent); }
+  .value-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .value-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  /* ── PAGE 3: Product Series ── */
+  .product-section { padding: 100px 0; background: var(--bg); }
+  .product-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .product-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media(max-width: 768px) { .product-cards { grid-template-columns: 1fr; } }
+  .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.3s; }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(45,90,39,0.12); border-color: var(--accent); }
+  .product-img { height: 240px; background: linear-gradient(135deg, #e8f0e4 0%, #d4e4cc 50%, #c0d8b8 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .dark .product-img { background: linear-gradient(135deg, #1a3010 0%, #142808 50%, #0f2006 100%); }
+  .product-badge { position: absolute; top: 16px; left: 16px; padding: 5px 12px; border-radius: 20px; background: var(--accent); color: white; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+  .product-icon-large { color: rgba(45,90,39,0.25); }
+  .dark .product-icon-large { color: rgba(109,179,74,0.2); }
+  .product-body { padding: 28px; }
+  .product-name { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .product-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.04em; }
+  .product-specs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .spec-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .spec-icon { color: var(--accent); flex-shrink: 0; }
+  .spec-label { color: var(--muted); min-width: 70px; }
+  .spec-value { font-weight: 500; }
+  .product-price { display: flex; align-items: baseline; gap: 8px; margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .price-symbol { font-size: 16px; font-weight: 500; color: var(--muted); }
+  .price-num { font-family: 'Noto Serif SC', serif; font-size: 32px; font-weight: 700; color: var(--accent); }
+  .price-unit { font-size: 13px; color: var(--muted); }
+
+  /* ── PAGE 4: Sales Channel ── */
+  .channel-section { padding: 100px 0; }
+  .channel-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width: 900px) { .channel-grid { grid-template-columns: 1fr; } }
+  .channel-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px 28px; transition: all 0.3s; position: relative; overflow: hidden; }
+  .channel-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+  .channel-card:hover::before { transform: scaleX(1); }
+  .channel-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(45,90,39,0.1); border-color: var(--accent); }
+  .channel-num { font-family: 'Noto Serif SC', serif; font-size: 48px; font-weight: 700; color: rgba(45,90,39,0.12); line-height: 1; margin-bottom: 20px; }
+  .dark .channel-num { color: rgba(109,179,74,0.12); }
+  .channel-icon-wrap { width: 52px; height: 52px; border-radius: 14px; background: rgba(45,90,39,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--accent); }
+  .channel-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .channel-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+  .channel-steps { display: flex; flex-direction: column; gap: 8px; }
+  .step { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+  .step-n { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .channel-qr { margin-top: 20px; padding: 12px; background: #f8f8f8; border-radius: 12px; text-align: center; }
+  .dark .channel-qr { background: #1c1a14; }
+  .qr-placeholder { width: 80px; height: 80px; margin: 0 auto 8px; background: repeating-linear-gradient(0deg, var(--accent) 0, var(--accent) 4px, transparent 4px, transparent 8px), repeating-linear-gradient(90deg, var(--accent) 0, var(--accent) 4px, transparent 4px, transparent 8px); background-size: 16px 16px; border-radius: 6px; opacity: 0.5; }
+  .qr-label { font-size: 11px; color: var(--muted); }
+
+  /* ── PAGE 5: Call to Action ── */
+  .cta-section { padding: 100px 0; background: linear-gradient(160deg, #2d5a27 0%, #1e3d1a 50%, #162c12 100%); color: white; text-align: center; position: relative; overflow: hidden; }
+  .dark .cta-section { background: linear-gradient(160deg, #1a3010 0%, #0f2006 50%, #091804 100%); }
+  .cta-pattern { position: absolute; inset: 0; opacity: 0.08; background-image: radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px); background-size: 28px 28px; }
+  .cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 0 24px; }
+  .cta-title { font-family: 'Noto Serif SC', serif; font-size: clamp(28px,4vw,48px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+  .cta-sub { font-size: 16px; opacity: 0.8; line-height: 1.7; margin-bottom: 48px; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+  .cta-btn-white { padding: 16px 40px; border-radius: 50px; background: white; color: #2d5a27; font-size: 16px; font-weight: 700; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
+  .cta-btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+  .cta-btn-outline { padding: 16px 40px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.5); color: white; font-size: 16px; font-weight: 600; background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
+  .cta-btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+  .cta-contact { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
+  .cta-contact-item { display: flex; align-items: center; gap: 10px; }
+  .cta-contact-item span { font-size: 14px; opacity: 0.85; }
+  .cta-contact-item strong { font-size: 15px; }
+
+  /* ── Footer ── */
+  .footer { padding: 32px 0; text-align: center; border-top: 1px solid var(--border); }
+  .footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+</style>
+<script>
+  // Dark mode
+  (function(){
+    const stored = localStorage.getItem('shq-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+  })();
+  function toggleTheme() {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('shq-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  }
+
+  // Page router
+  function showPage(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-dot').forEach(d => d.classList.remove('active'));
+    const target = document.getElementById('page-' + n);
+    if (target) { target.classList.add('active'); }
+    const dot = document.querySelector('.nav-dot[data-page="' + n + '"]');
+    if (dot) dot.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  window.addEventListener('load', () => showPage(1));
+</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">山青浩然</div>
+    <div class="nav-dots">
+      <div class="nav-dot active" data-page="1" onclick="showPage(1)" title="首页">首</div>
+      <div class="nav-dot" data-page="2" onclick="showPage(2)" title="品牌故事">故</div>
+      <div class="nav-dot" data-page="3" onclick="showPage(3)" title="产品系列">品</div>
+      <div class="nav-dot" data-page="4" onclick="showPage(4)" title="销售渠道">渠</div>
+      <div class="nav-dot" data-page="5" onclick="showPage(5)" title="立即订购">订</div>
+      <div class="theme-btn" onclick="toggleTheme()"><iconify-icon icon="lucide:sun" width="16"></iconify-icon></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE 1: Hero / Cover
+══════════════════════════════════ -->
+<section class="page active" id="page-1">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="deco-circle deco-1"></div>
+    <div class="deco-circle deco-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge anim-fade-up">
+          <iconify-icon icon="lucide:award" width="12"></iconify-icon>
+          校友经济 · 品质之选
+        </div>
+        <h1 class="hero-title anim-fade-up delay-1">
+          山青<br><span class="accent">浩然</span>
+        </h1>
+        <p class="hero-sub anim-fade-up delay-2">
+          由山东大学校友倾力打造的羽毛球品牌。以"校友经济"为纽带，凝聚山大人的力量与情怀，为每一位热爱羽毛球的校友提供专业、实惠、值得信赖的运动装备。
+        </p>
+        <div class="hero-actions anim-fade-up delay-3">
+          <button class="btn-primary" onclick="showPage(3)">
+            <iconify-icon icon="lucide:layers" width="16"></iconify-icon>
+            了解产品
+          </button>
+          <button class="btn-ghost" onclick="showPage(4)">
+            <iconify-icon icon="lucide:shopping-cart" width="16"></iconify-icon>
+            立即购买
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual anim-fade-in delay-4">
+        <div class="feather-orb">
+          <div class="orb-text">校友<br>精选</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stats-inner">
+      <div class="stat-item anim-fade-up delay-1">
+        <div class="stat-n">1000+</div>
+        <div class="stat-lbl">山大校友会员</div>
+      </div>
+      <div class="stat-item anim-fade-up delay-2">
+        <div class="stat-n">2款</div>
+        <div class="stat-lbl">专业羽毛球系列</div>
+      </div>
+      <div class="stat-item anim-fade-up delay-3">
+        <div class="stat-n">校友价</div>
+        <div class="stat-lbl">专属优惠通道</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PAGE 2: Brand Story
+══════════════════════════════════ -->
+<section class="page" id="page-2">
+  <div class="brand-section">
+    <div class="brand-inner">
+      <p class="section-eyebrow anim-fade-up">Brand Story</p>
+      <h2 class="section-title anim-fade-up delay-1">山青浩然<br>从何而来</h2>
+      <p class="section-sub anim-fade-up delay-2">
+        "山青"取自山东大学前身山东大学堂之意，"浩然"寓意正气与情怀。这里讲述的是一个关于校友、关于传承、关于热爱的故事。
+      </p>
+
+      <div class="story-grid">
+        <!-- Timeline -->
+        <div class="anim-slide-right">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:32px;display:flex;align-items:center;gap:8px;">
+            <iconify-icon icon="lucide:clock" width="18" style="color:var(--accent)"></iconify-icon>
+            品牌缘起
+          </h3>
+          <div class="story-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">缘起</div>
+              <div class="timeline-title">校友经济兴起</div>
+              <div class="timeline-desc">在消费升级与校友文化复兴的双重驱动下，山大校友群体开始探索"校友经济"模式——用品质说话，让信任背书。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">初心</div>
+              <div class="timeline-title">为校友提供专业装备</div>
+              <div class="timeline-desc">一位热爱羽毛球的山大校友，发现校友们缺少一款既专业又实惠、还能传递校友情感的羽毛球产品，遂萌生创业念头。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">打磨</div>
+              <div class="timeline-title">产品反复测试</div>
+              <div class="timeline-desc">联合山东体育学院专业团队，对球速、耐打度、飞行稳定性进行数十次专业测试，只为找到最适合校友运动场景的参数。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">诞生</div>
+              <div class="timeline-title">山青浩然正式发布</div>
+              <div class="timeline-desc">2024年，山青浩然羽毛球正式面世。首批校友试打反馈积极，口碑迅速在山大校友圈传播开来。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values -->
+        <div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+            <iconify-icon icon="lucide:heart" width="18" style="color:var(--accent)"></iconify-icon>
+            品牌价值观
+          </h3>
+          <div class="story-values">
+            <div class="value-card">
+              <div class="value-icon"><iconify-icon icon="lucide:users" width="22"></iconify-icon></div>
+              <div class="value-title">校友信任</div>
+              <div class="value-desc">每一羽球都是校友圈品质认证，口碑是最好的背书</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><iconify-icon icon="lucide:shield-check" width="22"></iconify-icon></div>
+              <div class="value-title">专业品质</div>
+              <div class="value-desc">联合专业团队研发，参数专为业余及轻度专业球友设计</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><iconify-icon icon="lucide:wallet" width="22"></iconify-icon></div>
+              <div class="value-title">校友价格</div>
+              <div class="value-desc">去除中间环节，校友专属价格，让每一分钱都用在刀刃上</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><iconify-icon icon="lucide:share-2" width="22"></iconify-icon></div>
+              <div class="value-title">情感链接</div>
+              <div class="value-desc">每一次挥拍，都是山大记忆的延续；每一场比赛，都是校友情谊的延续</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PAGE 3: Product Series
+══════════════════════════════════ -->
+<section class="page" id="page-3">
+  <div class="product-section">
+    <div class="product-inner">
+      <p class="section-eyebrow anim-fade-up">Product Series</p>
+      <h2 class="section-title anim-fade-up delay-1">两款精品<br>各有所长</h2>
+      <p class="section-sub anim-fade-up delay-2">
+        针对不同使用场景与需求，山青浩然推出两款专业羽毛球，满足日常训练、业余比赛、校友联谊等多元需求。
+      </p>
+
+      <div class="product-cards">
+        <!-- Product 1 -->
+        <div class="product-card anim-fade-up delay-2">
+          <div class="product-img">
+            <span class="product-badge">日常训练款</span>
+            <iconify-icon icon="mdi:feather" width="80" class="product-icon-large"></iconify-icon>
+          </div>
+          <div class="product-body">
+            <div class="product-name">山青 · 日常训练款</div>
+            <div class="product-sub">SQB-TRAINING · 日常训练 / 业余赛事</div>
+            <div class="product-specs">
+              <div class="spec-row">
+                <iconify-icon icon="lucide:wind" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">飞行速度</span>
+                <span class="spec-value">77 规格（标准速度）</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:layers" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">羽毛材质</span>
+                <span class="spec-value">鹅毛片 · 精选A档</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:target" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">飞行轨迹</span>
+                <span class="spec-value">稳定直线性飞行</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:durability" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">耐打度</span>
+                <span class="spec-value">中等偏上，适合多拍训练</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:badge" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">适用场景</span>
+                <span class="spec-value">日常训练、校友联谊活动</span>
+              </div>
+            </div>
+            <div class="product-price">
+              <span class="price-symbol">¥</span>
+              <span class="price-num">95</span>
+              <span class="price-unit">/ 桶（12只装）校友专享价</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card anim-fade-up delay-3">
+          <div class="product-img" style="background: linear-gradient(135deg, #e8e4d4 0%, #d4ceb8 50%, #c0bc9c 100%);">
+            <span class="product-badge" style="background: var(--accent2);">比赛精英款</span>
+            <iconify-icon icon="mdi:feather" width="80" class="product-icon-large" style="color: rgba(45,90,39,0.2);"></iconify-icon>
+          </div>
+          <div class="product-body">
+            <div class="product-name">浩然 · 比赛精英款</div>
+            <div class="product-sub">SQB-COMPETITION · 业余比赛 / 正式赛事</div>
+            <div class="product-specs">
+              <div class="spec-row">
+                <iconify-icon icon="lucide:wind" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">飞行速度</span>
+                <span class="spec-value">77 规格（精准调校）</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:layers" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">羽毛材质</span>
+                <span class="spec-value">全鹅毛 · 优选AA档</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:target" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">飞行轨迹</span>
+                <span class="spec-value">高速稳定，弧线精准</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:durability" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">耐打度</span>
+                <span class="spec-value">高强度耐打，专业级耐久</span>
+              </div>
+              <div class="spec-row">
+                <iconify-icon icon="lucide:badge" width="16" class="spec-icon"></iconify-icon>
+                <span class="spec-label">适用场景</span>
+                <span class="spec-value">校友杯比赛、对外友谊赛</span>
+              </div>
+            </div>
+            <div class="product-price">
+              <span class="price-symbol">¥</span>
+              <span class="price-num">98</span>
+              <span class="price-unit">/ 桶（12只装）校友专享价</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div style="margin-top: 60px;">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:24px;text-align:center;">两款对比一览</h3>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--border);">
+            <thead>
+              <tr style="background:rgba(45,90,39,0.05);">
+                <th style="padding:16px 20px;text-align:left;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">产品</th>
+                <th style="padding:16px 20px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">价格</th>
+                <th style="padding:16px 20px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">材质</th>
+                <th style="padding:16px 20px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">飞行</th>
+                <th style="padding:16px 20px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">耐打</th>
+                <th style="padding:16px 20px;text-align:center;font-size:13px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);">推荐场景</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:16px 20px;font-weight:700;border-bottom:1px solid var(--border);">山青 · 训练款</td>
+                <td style="padding:16px 20px;text-align:center;border-bottom:1px solid var(--border);"><span style="color:var(--accent);font-weight:700;">¥38/桶</span></td>
+                <td style="padding:16px 20px;text-align:center;border-bottom:1px solid var(--border);color:var(--muted);">鹅毛A档</td>
+                <td style="padding:16px 20px;text-align:center;border-bottom:1px solid var(--border);color:var(--muted);">稳定</td>
+                <td style="padding:16px 20px;text-align:center;border-bottom:1px solid var(--border);color:var(--muted);">中上</td>
+                <td style="padding:16px 20px;text-align:center;border-bottom:1px solid var(--border);color:var(--muted);font-size:13px;">日常训练 / 联谊</td>
+              </tr>
+              <tr>
+                <td style="padding:16px 20px;font-weight:700;">浩然 · 精英款</td>
+                <td style="padding:16px 20px;text-align:center;"><span style="color:var(--accent);font-weight:700;">¥58/桶</span></td>
+                <td style="padding:16px 20px;text-align:center;color:var(--muted);">全鹅毛AA档</td>
+                <td style="padding:16px 20px;text-align:center;color:var(--muted);">精准高速</td>
+                <td style="padding:16px 20px;text-align:center;color:var(--muted);">高强度</td>
+                <td style="padding:16px 20px;text-align:center;color:var(--muted);font-size:13px;">校友杯 / 正式赛</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PAGE 4: Sales Channels
+══════════════════════════════════ -->
+<section class="page" id="page-4">
+  <div class="channel-section">
+    <div class="channel-inner">
+      <p class="section-eyebrow anim-fade-up">Sales Channels</p>
+      <h2 class="section-title anim-fade-up delay-1">购买渠道<br>轻松直达</h2>
+      <p class="section-sub anim-fade-up delay-2">
+        山青浩然专为山大校友设计多重购买通道，无论身处何地，都能便捷获取正品保障与校友专属优惠。
+      </p>
+
+      <div class="channel-grid">
+        <!-- Channel 1 -->
+        <div class="channel-card anim-fade-up delay-2">
+          <div class="channel-num">01</div>
+          <div class="channel-icon-wrap"><iconify-icon icon="lucide:message-circle" width="24"></iconify-icon></div>
+          <div class="channel-title">校友微信群</div>
+          <div class="channel-desc">最直接、最温暖的购买通道。通过山大校友总会羽毛球分会微信群下单，专人统计、统一配送。</div>
+          <div class="channel-steps">
+            <div class="step"><div class="step-n">1</div>联系山大校友总会羽毛球分会</div>
+            <div class="step"><div class="step-n">2</div>说明所需产品型号及数量</div>
+            <div class="step"><div class="step-n">3</div>微信/支付宝转账付款</div>
+            <div class="step"><div class="step-n">4</div>统一配送或现场自提</div>
+          </div>
+        </div>
+
+        <!-- Channel 2 -->
+        <div class="channel-card anim-fade-up delay-3">
+          <div class="channel-num">02</div>
+          <div class="channel-icon-wrap"><iconify-icon icon="lucide:qr-code" width="24"></iconify-icon></div>
+          <div class="channel-title">校友专属微店</div>
+          <div class="channel-desc">扫码进入山青浩然校友微店，自助下单、物流配送到家。支持校友身份验证，享受专属价格。</div>
+          <div class="channel-steps">
+            <div class="step"><div class="step-n">1</div>扫描下方二维码进店</div>
+            <div class="step"><div class="step-n">2</div>选择产品并加入购物车</div>
+            <div class="step"><div class="step-n">3</div>提交订单并填写收货地址</div>
+            <div class="step"><div class="step-n">4</div>快递到家，正品保障</div>
+          </div>
+          <div class="channel-qr">
+            <div class="qr-placeholder"></div>
+            <div class="qr-label">扫码进微店</div>
+          </div>
+        </div>
+
+        <!-- Channel 3 -->
+        <div class="channel-card anim-fade-up delay-4">
+          <div class="channel-num">03</div>
+          <div class="channel-icon-wrap"><iconify-icon icon="lucide:trophy" width="24"></iconify-icon></div>
+          <div class="channel-title">比赛现场直销</div>
+          <div class="channel-desc">校友杯、山大体育赛事期间，现场设立直销点。无需等待物流，比赛间隙直接购买，还有赛事限定优惠。</div>
+          <div class="channel-steps">
+            <div class="step"><div class="step-n">1</div>关注山大校友羽毛球活动公告</div>
+            <div class="step"><div class="step-n">2</div>比赛当天前往直销展位</div>
+            <div class="step"><div class="step-n">3</div>现场挑选，享赛事专属折扣</div>
+            <div class="step"><div class="step-n">4</div>扫码加入校友产品群，复购无忧</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Purchase tips -->
+      <div style="margin-top: 60px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px 40px;">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:8px;">
+          <iconify-icon icon="lucide:info" width="20" style="color:var(--accent)"></iconify-icon>
+          购买须知
+        </h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+          <div style="display:flex;gap:12px;">
+            <iconify-icon icon="lucide:check-circle" width="18" style="color:var(--accent);flex-shrink:0;margin-top:2px"></iconify-icon>
+            <div>
+              <div style="font-weight:600;font-size:14px;margin-bottom:4px;">正品保障</div>
+              <div style="font-size:13px;color:var(--muted);">每羽球均为正品，校友专属防伪码可查</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <iconify-icon icon="lucide:check-circle" width="18" style="color:var(--accent);flex-shrink:0;margin-top:2px"></iconify-icon>
+            <div>
+              <div style="font-weight:600;font-size:14px;margin-bottom:4px;">校友专享价</div>
+              <div style="font-size:13px;color:var(--muted);">仅限山大校友及校友推荐人士享受</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <iconify-icon icon="lucide:check-circle" width="18" style="color:var(--accent);flex-shrink:0;margin-top:2px"></iconify-icon>
+            <div>
+              <div style="font-weight:600;font-size:14px;margin-bottom:4px;">快递包邮</div>
+              <div style="font-size:13px;color:var(--muted);">单次购买满2桶全国包邮（偏远地区除外）</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <iconify-icon icon="lucide:check-circle" width="18" style="color:var(--accent);flex-shrink:0;margin-top:2px"></iconify-icon>
+            <div>
+              <div style="font-weight:600;font-size:14px;margin-bottom:4px;">售后无忧</div>
+              <div style="font-size:13px;color:var(--muted);">收到货后48小时内如有问题可退换</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PAGE 5: CTA
+══════════════════════════════════ -->
+<section class="page" id="page-5">
+  <div class="cta-section">
+    <div class="cta-pattern"></div>
+    <div class="cta-inner">
+      <p class="section-eyebrow anim-fade-up" style="color:rgba(255,255,255,0.6);text-align:center;">Let's Connect</p>
+      <h2 class="cta-title anim-fade-up delay-1">以球会友<br>山青浩然</h2>
+      <p class="cta-sub anim-fade-up delay-2">
+        无论你是寻找日常训练用球，还是备战校友杯，山青浩然都是值得信赖的选择。<br>
+        联系山大校友总会羽毛球分会，开启您的校友运动之旅。
+      </p>
+      <div class="cta-actions anim-fade-up delay-3">
+        <button class="cta-btn-white" onclick="showPage(3)">
+          <iconify-icon icon="lucide:layers" width="18"></iconify-icon>
+          查看产品详情
+        </button>
+        <button class="cta-btn-outline">
+          <iconify-icon icon="lucide:message-circle" width="18"></iconify-icon>
+          联系购买
+        </button>
+      </div>
+      <div class="cta-contact anim-fade-up delay-4">
+        <div class="cta-contact-item">
+          <iconify-icon icon="lucide:phone" width="16"></iconify-icon>
+          <span>咨询联系</span>
+          <strong>山大校友总会</strong>
+        </div>
+        <div class="cta-contact-item">
+          <iconify-icon icon="lucide:map-pin" width="16"></iconify-icon>
+          <span>产地直发</span>
+          <strong>品质保证</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2024 山青浩然 · 山东大学校友羽毛球品牌 · 校友经济 · 品质传承</p>
+  </div>
+</section>
+
+</body>
+</html>
